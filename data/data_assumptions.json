@@ -1,0 +1,181 @@
+{
+  "generation_date": "2026-10-04T01:17:57.242564",
+  "n_users": 1000,
+  "time_horizon_days": 180,
+  "train_test_split": 0.8,
+  "split_method": "by_user_id_no_leakage",
+  "user_demographics": {
+    "age_distribution": {
+      "gen_z": [
+        18,
+        26
+      ],
+      "millennial": [
+        27,
+        42
+      ],
+      "gen_x": [
+        43,
+        58
+      ],
+      "boomer": [
+        59,
+        70
+      ]
+    },
+    "age_weights": [
+      0.2,
+      0.35,
+      0.25,
+      0.2
+    ],
+    "income_brackets": {
+      "low": [
+        20000,
+        40000
+      ],
+      "lower_middle": [
+        40000,
+        65000
+      ],
+      "middle": [
+        65000,
+        100000
+      ],
+      "upper_middle": [
+        100000,
+        150000
+      ],
+      "high": [
+        150000,
+        300000
+      ]
+    },
+    "income_weights": [
+      0.15,
+      0.25,
+      0.3,
+      0.2,
+      0.1
+    ]
+  },
+  "transaction_patterns": {
+    "daily_transaction_count": "Poisson(lambda=12), clipped to [1, 40]",
+    "merchant_categories": {
+      "dining": [
+        "restaurant",
+        "cafe",
+        "fast_food",
+        "food_delivery",
+        "bar"
+      ],
+      "transport": [
+        "uber",
+        "lyft",
+        "public_transit",
+        "gas_station",
+        "parking",
+        "toll"
+      ],
+      "bills": [
+        "electricity",
+        "water",
+        "internet",
+        "phone",
+        "insurance",
+        "subscription"
+      ],
+      "shopping": [
+        "amazon",
+        "target",
+        "walmart",
+        "clothing",
+        "electronics",
+        "home_goods"
+      ],
+      "entertainment": [
+        "netflix",
+        "spotify",
+        "movie_theater",
+        "gaming",
+        "events",
+        "streaming"
+      ],
+      "groceries": [
+        "supermarket",
+        "wholesale_club",
+        "farmers_market",
+        "convenience_store"
+      ],
+      "healthcare": [
+        "pharmacy",
+        "doctor_visit",
+        "dental",
+        "vision",
+        "fitness",
+        "therapy"
+      ]
+    },
+    "category_weights": [
+      0.2,
+      0.15,
+      0.1,
+      0.15,
+      0.1,
+      0.2,
+      0.1
+    ],
+    "amount_ranges_by_category": {
+      "bills": [
+        20,
+        300
+      ],
+      "groceries": [
+        15,
+        200
+      ],
+      "dining": [
+        5,
+        80
+      ],
+      "transport": [
+        3,
+        60
+      ],
+      "shopping": [
+        10,
+        500
+      ],
+      "entertainment": [
+        5,
+        50
+      ],
+      "healthcare": [
+        10,
+        200
+      ]
+    },
+    "round_up_rule": "nearest_dollar, 0.01-0.99 per transaction"
+  },
+  "wallet_cashflows": {
+    "initial_balance_range": "[50, 500]",
+    "monthly_deposit": "10-30% of monthly_income on day 1",
+    "mid_month_withdrawal": "5-20% of balance, 30% probability on day 15",
+    "fee_frequency": "2% daily probability, $1-5",
+    "round_up_investment": "automatic on each transaction"
+  },
+  "user_attributes": {
+    "risk_tolerance": [
+      "conservative:30%, moderate:50%, aggressive:20%"
+    ],
+    "investment_goal": [
+      "emergency_fund:25%, retirement:30%, major_purchase:20%, wealth_building:25%"
+    ],
+    "kyc_status": [
+      "verified:85%, pending:10%, rejected:5%"
+    ],
+    "account_type": [
+      "individual:80%, joint:15%, custodial:5%"
+    ]
+  }
+}
